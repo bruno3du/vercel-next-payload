@@ -1,0 +1,32 @@
+{
+  "name": "payload-cms",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "generate:payload-types": "payload generate:types",
+    "dev": "bun generate:payload-types && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "^0.1.13",
+    "@payloadcms/next-payload": "^0.1.9",
+    "@payloadcms/richtext-slate": "^1.2.0",
+    "next": "14.0.3",
+    "payload": "^2.2.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.48.2",
+    "sharp": "^0.32.6"
+  },
+  "devDependencies": {
+    "@types/escape-html": "^1.0.4",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
+    "typescript": "^5"
+  }
+}
