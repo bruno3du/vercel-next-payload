@@ -7,14 +7,16 @@
     "dev": "bun generate:payload-types && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install:payload": "next-payload install"
   },
   "dependencies": {
+    "@payloadcms/bundler-webpack": "^1.0.5",
     "@payloadcms/db-postgres": "^0.1.13",
     "@payloadcms/next-payload": "^0.1.9",
     "@payloadcms/richtext-slate": "^1.2.0",
     "@vercel/postgres": "^0.5.1",
-    "next": "14.0.3",
+    "next": "13",
     "payload": "^2.2.1",
     "react": "^18",
     "react-dom": "^18",

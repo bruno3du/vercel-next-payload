@@ -26,7 +26,7 @@ export default function ListPost() {
       {posts?.docs?.map((post) => (
         <div key={post.id}>
           <h1>{post.title}</h1>
-          <p>{post.createdAt}</p>
+          <p>{post.body}</p>
         </div>
       ))}
     </div>

@@ -11,13 +11,16 @@ export const regenerateStaticPage: AfterChangeHook<any> = async ({
   if (path === "/home" || path.endsWith("undefined")) {
     path = "/";
   }
+
   console.log(
-    `${process.env.PAYLOAD_PUBLIC_CMS_URL}/routes/revalidate?path=${path}`
+    `${
+      process.env.VERCEL_URL ?? process.env.PAYLOAD_PUBLIC_CMS_URL
+    }/routes/revalidate?path=${path}`
   );
 
   try {
     const res = await fetch(
-      `${process.env.PAYLOAD_PUBLIC_CMS_URL}/routes/revalidate?path=${path}`
+      `${process.env.VERCEL_URL ?? process.env.PAYLOAD_PUBLIC_CMS_URL}/routes/revalidate?path=${path}`
     );
     if (res.ok) {
       payload.logger.info(`Now regenerating path '${path}'`);

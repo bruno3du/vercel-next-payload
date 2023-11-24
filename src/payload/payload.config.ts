@@ -3,14 +3,8 @@ import { buildConfig } from "payload/config";
 import { Post } from "./collections/posts";
 import { Config } from "./globals/configs";
 import { postgresAdapter } from "@payloadcms/db-postgres";
+import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
-
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
-
-// or
-
-// or
 
 export default buildConfig({
   db: postgresAdapter({
@@ -22,7 +16,9 @@ export default buildConfig({
   editor: slateEditor({}),
   collections: [Post],
   globals: [Config],
-
+  admin: {
+    bundler: webpackBundler(),
+  },
   typescript: {
     outputFile: path.resolve(__dirname, "../payload-types.ts"),
   },
