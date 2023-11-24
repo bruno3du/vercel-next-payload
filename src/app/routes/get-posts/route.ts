@@ -1,5 +1,4 @@
 import getPayloadClient from "@/payload/payloadClient";
-import { NextRequest } from "next/server";
 
 export async function GET() {
   const payload = await getPayloadClient();

@@ -3,15 +3,18 @@
 import { Post } from "@/payload-types";
 import { useEffect, useState } from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function ListPost() {
   const [posts, setPosts] = useState<{ docs: Post[] }>();
 
   useEffect(() => {
     fetch("/routes/get-posts", {
+      cache: "no-cache",
       next: {
         tags: ["posts"],
+        revalidate: 10,
       },
-      cache: "no-cache",
     })
       .then((res) => res.json())
       .then((data) => {

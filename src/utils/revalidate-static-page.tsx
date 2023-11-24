@@ -25,7 +25,8 @@ export const regenerateStaticPage: AfterChangeHook<any> = async ({
     if (res.ok) {
       payload.logger.info(`Now regenerating path '${path}'`);
     } else {
-      payload.logger.info(`Error regenerating path '${path}'`);
+      payload.logger.info(`Error regenerating path '${path}'`); 
+      // https://vercel-next-payload.vercel.app/
     }
   } catch (err) {
     payload.logger.info(`Error hitting regeneration route for '${path}'`);
