@@ -4,7 +4,7 @@ const { withPayload } = require("@payloadcms/next-payload");
 
 module.exports = withPayload(
   {
-    // your Next config here
+    
   },
   {
     // The second argument to `withPayload`

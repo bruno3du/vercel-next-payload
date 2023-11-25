@@ -15,6 +15,7 @@ export default function CreatePost() {
       next: {
         tags: ["posts"],
       },
+      cache: "no-cache",
     });
   };
 

@@ -1,4 +1,5 @@
 import getPayloadClient from "@/payload/payloadClient";
+import { revalidateTag } from "next/cache";
 
 export async function GET() {
   const payload = await getPayloadClient();
@@ -7,6 +8,8 @@ export async function GET() {
     collection: "posts",
     draft: true,
   });
+
+  revalidateTag("posts");
 
   return Response.json(posts);
 }
