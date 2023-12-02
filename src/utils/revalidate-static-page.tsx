@@ -5,14 +5,13 @@ export const regenerateStaticPage: AfterChangeHook<any> = async ({
   doc,
 }) => {
   let path = `/${doc.slug}`;
-  const router = process.env.VERCEL_URL
-    ? "https://" + process.env.VERCEL_URL
-    : process.env.PAYLOAD_PUBLIC_CMS_URL;
-  console.log(router);
+  const router = process.env.PAYLOAD_PUBLIC_CMS_URL
 
   if (path === "/home" || path.endsWith("undefined")) {
     path = "/";
   }
+
+  console.log("regenerating", `${router}/routes/revalidate?path=${path}`);
 
   try {
     const res = await fetch(`${router}/routes/revalidate?path=${path}`);
