@@ -1,26 +1,10 @@
-"use client";
+import getPayloadClient from "@/payload/payloadClient";
 
-import { Post } from "@/payload-types";
-import { useEffect, useState } from "react";
+export const revalidate = 10;
 
-export const dynamic = "force-dynamic";
-
-export default function ListPost() {
-  const [posts, setPosts] = useState<{ docs: Post[] }>();
-
-  useEffect(() => {
-    fetch("/routes/get-posts", {
-      cache: "no-cache",
-      next: {
-        tags: ["posts"],
-        revalidate: 10,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setPosts(data);
-      });
-  }, []);
+export default async function ListPost() {
+  const client = await getPayloadClient();
+  const posts = await client.find({ collection: "posts" });
 
   return (
     <div>

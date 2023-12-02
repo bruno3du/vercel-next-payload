@@ -18,14 +18,14 @@ export interface Config {
   };
 }
 export interface Post {
-  id: number;
+  id: string;
   title?: string | null;
   body?: string | null;
   updatedAt: string;
   createdAt: string;
 }
 export interface User {
-  id: number;
+  id: string;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -38,10 +38,10 @@ export interface User {
   password: string | null;
 }
 export interface PayloadPreference {
-  id: number;
+  id: string;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   key?: string | null;
   value?:
@@ -57,14 +57,14 @@ export interface PayloadPreference {
   createdAt: string;
 }
 export interface PayloadMigration {
-  id: number;
+  id: string;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
 }
 export interface Config1 {
-  id: number;
+  id: string;
   title?: string | null;
   body?:
     | {
