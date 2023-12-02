@@ -7,14 +7,8 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 
 export default buildConfig({
-  // db: postgresAdapter({
-  //   migrationDir: path.resolve(__dirname, "./migrations"),
-  //   pool: {
-  //     connectionString: process.env.DATABASE_URI_URL,
-  //   },
-  // }),
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI_URL!,
+    url: process.env.MONGODB_URI!,
   }),
   editor: slateEditor({}),
   collections: [Post],
