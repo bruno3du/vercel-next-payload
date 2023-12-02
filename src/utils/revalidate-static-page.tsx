@@ -5,10 +5,10 @@ export const regenerateStaticPage: AfterChangeHook<any> = async ({
   doc,
 }) => {
   let path = `/${doc.slug}`;
-  const router =
-    process.env.NODE_ENV === "production"
-      ? process.env.VERCEL_URL ?? process.env.PAYLOAD_PUBLIC_CMS_URL
-      : "http://localhost:3000";
+  const router = process.env.VERCEL_URL
+    ? "https://" + process.env.VERCEL_URL
+    : process.env.PAYLOAD_PUBLIC_CMS_URL;
+  console.log(router);
 
   if (path === "/home" || path.endsWith("undefined")) {
     path = "/";
@@ -20,7 +20,6 @@ export const regenerateStaticPage: AfterChangeHook<any> = async ({
       payload.logger.info(`Now regenerating path '${path}'`);
     } else {
       payload.logger.info(`Error regenerating path '${path}'`);
-      // https://vercel-next-payload.vercel.app/
     }
   } catch (err) {
     payload.logger.info(`Error hitting regeneration route for '${path}'`);
