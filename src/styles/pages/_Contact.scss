@@ -1,0 +1,65 @@
+.contact-container {
+    @include container;
+
+    div {
+        width: fit-content;
+        max-width: 900px;  
+        margin: 0 auto;
+        // margin-top: 10px;
+        // border: 1px solid;
+    }
+    
+    .contact-title {
+        h1{
+            font-size: 1.75rem;
+            font-weight: 500;
+        } 
+    }
+    
+    .mail-contact {
+        margin-top: 25px;
+        a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 400;
+            
+            &:hover {
+                color: $primary_green;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .social {
+        margin-top: 50px;
+        // border: 1px solid;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+
+    .send-to-prismic {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        padding: 10px;
+        border: 1px solid;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+
+            label, button {
+                margin-top: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gongosa.com
+
+# Sitemaps
+Sitemap: https://gongosa.com/sitemap.xml

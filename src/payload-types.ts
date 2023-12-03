@@ -8,7 +8,11 @@
 
 export interface Config {
   collections: {
-    posts: Post;
+    events: Event;
+    media: Media;
+    cities: City;
+    type: Type;
+    places: Place;
     users: User;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -17,10 +21,79 @@ export interface Config {
     config: Config1;
   };
 }
-export interface Post {
+export interface Event {
   id: string;
+  eventImg: string | Media;
+  eventName: string;
+  dateStart?: string | null;
+  dateStartHour?: string | null;
+  dateEndHour?: string | null;
+  status?: ('Happening' | 'Upcoming' | 'Past') | null;
+  dateEnd?: string | null;
+  eventLocation: string | Place;
+  eventType: string | Type;
+  PayableEvent?: boolean | null;
+  eventPrice?: number | null;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+export interface Media {
+  id: string;
+  alt: string;
   title?: string | null;
-  body?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    tablet?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+export interface Place {
+  id: string;
+  place: string;
+  city?: (string | null) | City;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface City {
+  id: string;
+  city: string;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Type {
+  id: string;
+  type?: string | null;
   updatedAt: string;
   createdAt: string;
 }
