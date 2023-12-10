@@ -1,8 +1,8 @@
 import { CollectionConfig } from "payload/dist/exports/types";
-import { SLUG } from "../constants/slugKey";
+import { slugKey } from "../constants/slugKey";
 
 export const Cities: CollectionConfig = {
-  slug: SLUG.CITIES,
+  slug: slugKey.CITIES,
   access: {
     read: () => true,
     create: () => true,

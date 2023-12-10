@@ -1,4 +1,4 @@
-export enum SLUG {
+export enum slugKey {
   EVENT = "events",
   MEDIA = "media",
   CITIES = "cities",

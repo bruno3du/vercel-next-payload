@@ -1,11 +1,13 @@
+import path from "path";
 import { CollectionConfig } from "payload/types";
-import { SLUG } from "../constants/slugKey";
+import { slugKey } from "../constants/slugKey";
 
 export const Media: CollectionConfig = {
-  slug: SLUG.MEDIA,
+  slug: slugKey.MEDIA,
   upload: {
     staticURL: "/media",
-    staticDir: "../../../../public",
+    disableLocalStorage: true,
+    staticDir: path.join(__dirname, "../../public"),
     imageSizes: [
       {
         name: "thumbnail",
@@ -22,15 +24,12 @@ export const Media: CollectionConfig = {
       {
         name: "tablet",
         width: 1024,
-        // By specifying `undefined` or leaving a height undefined,
-        // the image will be sized to a certain width,
-        // but it will retain its original aspect ratio
-        // and calculate a height automatically.
         height: undefined,
         position: "centre",
       },
     ],
     adminThumbnail: "thumbnail",
+
     mimeTypes: ["image/*"],
   },
 

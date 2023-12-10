@@ -1,3 +1,4 @@
+import { env } from "@/env.mjs";
 import { AfterChangeHook } from "payload/dist/collections/config/types";
 
 export const regenerateStaticPage: AfterChangeHook<any> = async ({
@@ -5,13 +6,16 @@ export const regenerateStaticPage: AfterChangeHook<any> = async ({
   doc,
 }) => {
   let path = `/${doc.slug}`;
-  const router = process.env.PAYLOAD_PUBLIC_CMS_URL
+  const router = env.PAYLOAD_PUBLIC_CMS_URL;
 
   if (path === "/home" || path.endsWith("undefined")) {
     path = "/";
   }
 
-  console.log("regenerating", `${router}/routes/revalidate?path=${path}`);
+  payload.logger.info(
+    "regenerating",
+    `${router}/routes/revalidate?path=${path}`
+  );
 
   try {
     const res = await fetch(`${router}/routes/revalidate?path=${path}`);

@@ -1,8 +1,8 @@
 import { CollectionConfig } from "payload/dist/exports/types";
-import { SLUG } from "../constants/slugKey";
+import { slugKey } from "../constants/slugKey";
 
 export const Type: CollectionConfig = {
-  slug: SLUG.TYPE,
+  slug: slugKey.TYPE,
   access: {
     read: () => true,
     create: () => true,

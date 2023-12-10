@@ -1,9 +1,9 @@
 import { regenerateStaticPage } from "@/utils/revalidate-static-page";
 import { CollectionConfig } from "payload/dist/exports/types";
-import { SLUG } from "../constants/slugKey";
+import { slugKey } from "../constants/slugKey";
 
 export const Event: CollectionConfig = {
-  slug: SLUG.EVENT,
+  slug: slugKey.EVENT,
   access: {
     read: () => true,
     create: () => true,
@@ -60,13 +60,13 @@ export const Event: CollectionConfig = {
       name: "eventLocation",
       type: "relationship",
       required: true,
-      relationTo: SLUG.PLACE,
+      relationTo: slugKey.PLACE,
     },
     {
       name: "eventType",
       type: "relationship",
       required: true,
-      relationTo: SLUG.TYPE,
+      relationTo: slugKey.TYPE,
     },
     {
       name: "PayableEvent",

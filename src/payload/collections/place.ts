@@ -1,8 +1,8 @@
 import { CollectionConfig } from "payload/dist/exports/types";
-import { SLUG } from "../constants/slugKey";
+import { slugKey } from "../constants/slugKey";
 
 export const Places: CollectionConfig = {
-  slug: SLUG.PLACE,
+  slug: slugKey.PLACE,
   access: {
     read: () => true,
     create: () => true,
@@ -12,7 +12,6 @@ export const Places: CollectionConfig = {
   admin: {
     useAsTitle: "place",
     defaultColumns: ["place", "city", "id"],
-    
   },
   fields: [
     {
@@ -23,7 +22,7 @@ export const Places: CollectionConfig = {
     {
       name: "city",
       type: "relationship",
-      relationTo: SLUG.CITIES,
+      relationTo: slugKey.CITIES,
     },
   ],
 };
